@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Заговок сторінки</title>
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	</head>
+	<style>
+		body{
+			background-color: pink;
+			padding: 50px;
+			color: grey;
+			font-size: 20px;
+		}
+		h1{
+			text-align: center;
+		}
+	</style>
+	<body>
+		<h1>About us</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sapiente delectus tempore laudantium temporibus tenetur asperiores magnam pariatur cupiditate, aperiam blanditiis repellat exercitationem soluta voluptas itaque. Dolor adipisci aspernatur iste qui quis fugiat quia illum perferendis aliquam facilis reiciendis voluptatibus, alias tempore deserunt laborum? Consectetur ab cum ducimus aliquam molestias.</p>
+
+		<form method="post" action="/about">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+		    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group form-check">
+		    <input type="checkbox" name="check" class="form-check-input" id="exampleCheck1">
+		    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	</body>
+</html>

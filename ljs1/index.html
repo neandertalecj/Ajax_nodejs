@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <button onclick="loadPhones()" id="button">Загрузить phones.json!</button>
+  <ol id="box"></ol>
+
+  <button onclick="sendPost()" id="button">Відправити обєкт джейсоном</button>
+  <p>{</p>
+  <p> name: 'Vasyl',</p>
+  <p> sernume: 'Kurtash'</p>
+  <p>}</p>
+  <script>
+  var ol = document.getElementById('box');
+
+  function pars(arr) {
+    var ulContent = '';
+    arr.forEach(function(arr) {
+      // console.log(arr.id);
+      ulContent = ulContent + `<li>${arr.id}</li>`;
+    });
+    console.log(ulContent);
+    ol.innerHTML = ulContent;
+  }
+
+
+    function loadPhones() {
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('GET', 'phones.json', true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) return;
+
+        button.innerHTML = 'Готово!';
+
+        if (xhr.status != 200) {
+          // обработать ошибку
+          alert(xhr.status + ': ' + xhr.statusText);
+        } else {
+          // вывести результат
+          var response = JSON.parse(xhr.responseText);
+          // console.log(response);
+          pars(response);
+        }
+
+      }
+
+      xhr.send();
+
+      button.innerHTML = 'Загружаю...';
+      button.disabled = true;
+    }
+
+    function sendPost() {
+      var xhr = new XMLHttpRequest();
+
+      var obj = {
+        name: 'Vasyl',
+        surname: 'Kurtash'
+      }
+
+      var json = JSON.stringify(obj);
+
+      console.log(obj);
+      console.log(json);
+
+      xhr.open('POST', '/base', true);
+      xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+      xhr.send(json);
+
+    }
+  </script>
+
+</body>
+
+</html>
