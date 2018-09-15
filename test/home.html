@@ -12,4 +12,21 @@
 		<h1>Home page</h1>
 		<p>В одной из моих программ понадобилась запись данных в формате JSON. Вкратце — XML-подобный формат, вполне подходит на замену Windows INI-файлам или тому же XML. Удобен тем, что поддерживает массивы и вложенность собственных структур, но при этом не замусоривает файл данных своими тегами до полной нечитабельности человеком. Вот пример файла данных.</p>
 	</body>
+	<!-- <script src="ajax.js"></script> -->
+	<script>
+		
+		var xhr = new XMLHttpRequest();
+
+		xhr.open('GET', 'json', true);
+		xhr.send();
+
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState != 4) return;
+			if (xhr.status != 200) {
+				console.log(xhr.status + ':' + xhr.statusText);
+			} else {
+				console.log(xhr.responseText);
+			}
+		}
+	</script>
 </html>
