@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var qs = require('querystring');
 
 function getInf(res, status, mimeType, url) {
     //res.writeHead(200, {'Content-Type': mimeType + '; charset = utf-8'});
@@ -38,10 +39,17 @@ var obj = {name: 'Vasyl', surname: 'Kurtash'}
 		case 'GET': 
 			if (req.url === '/') {
 				getInf(res, 200, mimeTypes['html'], 'home.html');
+			} else if( req.url === '/form') {
+				getInf(res, 200, mimeTypes['html'], 'form.html');
 			} else if( req.url === '/json_file') {
 				getInf(res, 200, mimeTypes['json'], 'file.json');		
 			} else if( req.url === '/json') {
 				getData(res, obj, mimeTypes['json']);
+			} else if( req.url === '/login') {
+				console.log(req.url);
+				console.log(req.query);
+				// console.log(req.url);
+
 			} else {
 				getInf(res, 404, mimeTypes['html'], '404.html');
 			}
